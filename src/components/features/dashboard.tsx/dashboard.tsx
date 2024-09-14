@@ -216,7 +216,7 @@ const Dashboard = () => {
                 <AvatarFallback>OM</AvatarFallback>
               </Avatar>
               <div className="grid gap-1">
-                <p className="text-sm font-medium leading-none">
+                <p className="text-sm font-medium leading-none text-left">
                   Olivia Martin
                 </p>
                 <p className="text-sm text-muted-foreground">
@@ -231,7 +231,9 @@ const Dashboard = () => {
                 <AvatarFallback>JL</AvatarFallback>
               </Avatar>
               <div className="grid gap-1">
-                <p className="text-sm font-medium leading-none">Jackson Lee</p>
+                <p className="text-sm font-medium leading-none text-left">
+                  Jackson Lee
+                </p>
                 <p className="text-sm text-muted-foreground">
                   jackson.lee@email.com
                 </p>
@@ -244,7 +246,7 @@ const Dashboard = () => {
                 <AvatarFallback>IN</AvatarFallback>
               </Avatar>
               <div className="grid gap-1">
-                <p className="text-sm font-medium leading-none">
+                <p className="text-sm font-medium leading-none text-left">
                   Isabella Nguyen
                 </p>
                 <p className="text-sm text-muted-foreground">
@@ -259,7 +261,9 @@ const Dashboard = () => {
                 <AvatarFallback>WK</AvatarFallback>
               </Avatar>
               <div className="grid gap-1">
-                <p className="text-sm font-medium leading-none">William Kim</p>
+                <p className="text-sm font-medium leading-none text-left">
+                  William Kim
+                </p>
                 <p className="text-sm text-muted-foreground">will@email.com</p>
               </div>
               <div className="ml-auto font-medium">+$99.00</div>
@@ -270,7 +274,9 @@ const Dashboard = () => {
                 <AvatarFallback>SD</AvatarFallback>
               </Avatar>
               <div className="grid gap-1">
-                <p className="text-sm font-medium leading-none">Sofia Davis</p>
+                <p className="text-sm font-medium leading-none text-left">
+                  Sofia Davis
+                </p>
                 <p className="text-sm text-muted-foreground">
                   sofia.davis@email.com
                 </p>
