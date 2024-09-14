@@ -3,10 +3,10 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import React from "react";
 import salonImg from "@/assets/salonImg.png";
+import { useNavigate } from "react-router-dom";
 
-type Props = {};
-
-const Login = (props: Props) => {
+const Login = () => {
+  const navigate = useNavigate();
   return (
     <div className="w-full min-h-screen lg:grid lg:grid-cols-2 h-full">
       <div className="flex items-center justify-center py-12">
@@ -46,13 +46,20 @@ const Login = (props: Props) => {
                 required
               />
             </div>
-            <Button type="submit" className="w-full">
+            <Button
+              type="submit"
+              className="w-full"
+              onClick={() => {
+                localStorage.setItem("token", "example");
+                navigate("/dashboard");
+              }}
+            >
               Login
             </Button>
           </div>
           <div className="mt-4 text-center text-sm">
             Don&apos;t have an account?{" "}
-            <a href="#" className="underline">
+            <a href="signup" className="underline">
               Sign up
             </a>
           </div>
