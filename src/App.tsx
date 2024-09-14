@@ -5,15 +5,35 @@ import "./global.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./routes/root";
 import Login from "./routes/Login";
+import Dashboard from "./components/features/dashboard.tsx/dashboard";
+import SignUp from "./routes/SignUp";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    children: [
+      {
+        path: "dashboard",
+        element: <Dashboard />,
+      },
+      {
+        path: "products",
+        element: <></>,
+      },
+      {
+        path: "customers",
+        element: <></>,
+      },
+    ],
   },
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/signup",
+    element: <SignUp />,
   },
 ]);
 
