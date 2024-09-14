@@ -4,19 +4,19 @@ import Sidebar from "@/components/ui/sidebar";
 import { Outlet } from "react-router-dom";
 
 export default function Root() {
-  const token = localStorage.getItem("token");
-  if (!token) {
-    window.location.href = "/login";
-  }
-  return (
-    <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
-      <Sidebar />
-      <div className="flex flex-col">
-        <Nav />
-        <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
-          <Outlet />
-        </main>
-      </div>
-    </div>
-  );
+    const token = localStorage.getItem("token");
+    if (!token) {
+        window.location.href = "/login";
+    }
+    return (
+        <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
+            <Sidebar />
+            <div className="flex flex-col">
+                <Nav />
+                <main className="flex max-h-max flex-1 flex-col gap-4 overflow-y-auto p-4 lg:gap-6 lg:p-6">
+                    <Outlet />
+                </main>
+            </div>
+        </div>
+    );
 }
