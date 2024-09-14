@@ -1,5 +1,4 @@
 import { RegisterCard } from "@/components/features/register/register-card";
-import React from "react";
 
 const SignUp = () => {
   return (

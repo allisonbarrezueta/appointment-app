@@ -28,7 +28,19 @@ export default tseslint.config(
       "@typescript-eslint/no-empty-interface": "off",
       "@typescript-eslint/no-unused-vars": "off",
       "@typescript-eslint/no-empty-object-type": "off",
-      "no-unused-vars": "off",
+      // "unused-imports/no-unused-imports-ts": 2,
+      "no-unused-vars": "warn",
+
+      "import/no-anonymous-default-export": "off",
+      "react/display-name": "off",
+      "@typescript-eslint/no-unsafe-call": "off",
+      "@typescript-eslint/no-unsafe-return": "off",
+      "@typescript-eslint/unbound-method": "off",
+      "@typescript-eslint/require-await": "off",
+      "@typescript-eslint/ban-ts-comment": "off",
+      "@typescript-eslint/no-unsafe-assignment": "off",
+      "@typescript-eslint/no-unsafe-member-access": "off",
+
       "react-refresh/only-export-components": [
         "warn",
         { allowConstantExport: true },
