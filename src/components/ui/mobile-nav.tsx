@@ -27,7 +27,7 @@ export default function MobileNav() {
             <span className="sr-only">Acme Inc</span>
           </a>
           <a
-            href="#"
+            href="dashboard"
             className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
           >
             <Home className="h-5 w-5" />
@@ -44,21 +44,21 @@ export default function MobileNav() {
             </Badge>
           </a>
           <a
-            href="#"
+            href="products"
             className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
           >
             <Package className="h-5 w-5" />
             Products
           </a>
           <a
-            href="#"
+            href="customers"
             className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
           >
             <Users className="h-5 w-5" />
             Customers
           </a>
           <a
-            href="#"
+            href="analytics"
             className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
           >
             <LineChart className="h-5 w-5" />
