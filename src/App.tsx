@@ -6,11 +6,13 @@ import Root from "./routes/root";
 import Login from "./routes/Login";
 import Dashboard from "./components/features/dashboard.tsx/dashboard";
 import SignUp from "./routes/SignUp";
+import ErrorPage from "./components/features/error/error-page";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "dashboard",
