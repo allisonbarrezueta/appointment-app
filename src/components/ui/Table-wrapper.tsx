@@ -1,8 +1,6 @@
-import React from "react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { ColumnDef, flexRender, Table as ITanstackTable } from "@tanstack/react-table";
-import { isEmpty } from "lodash";
 
 interface Props<T> {
     table: ITanstackTable<T>;
