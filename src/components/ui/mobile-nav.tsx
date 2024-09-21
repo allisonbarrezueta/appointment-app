@@ -24,35 +24,6 @@ export default function MobileNav() {
                             </a>
                         );
                     })}
-                    {/* <a href="#" className="flex items-center gap-2 text-lg font-semibold">
-                        <Package2 className="h-6 w-6" />
-                        <span className="sr-only">Acme Inc</span>
-                    </a>
-                    <a href="dashboard" className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground">
-                        <Home className="h-5 w-5" />
-                        Dashboard
-                    </a>
-                    <a href="#" className="mx-[-0.65rem] flex items-center gap-4 rounded-xl bg-muted px-3 py-2 text-foreground hover:text-foreground">
-                        <ShoppingCart className="h-5 w-5" />
-                        Orders
-                        <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">6</Badge>
-                    </a>
-                    <a href="products" className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground">
-                        <Package className="h-5 w-5" />
-                        Products
-                    </a>
-                    <a href="customers" className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground">
-                        <Users className="h-5 w-5" />
-                        Customers
-                    </a>
-                    <a href="analytics" className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground">
-                        <LineChart className="h-5 w-5" />
-                        Analytics
-                    </a>
-                    <a href="forms" className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground">
-                        <LineChart className="h-5 w-5" />
-                        Forms
-                    </a> */}
                 </nav>
             </SheetContent>
         </Sheet>

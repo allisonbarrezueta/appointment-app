@@ -1,4 +1,4 @@
-import { Calendar, ClipboardType, Home, LineChart, Package, ShoppingCart, Users } from "lucide-react";
+import { Calendar, ClipboardType, Home, LineChart, Package, Users } from "lucide-react";
 
 export const sidebarItems = [
     {
@@ -7,9 +7,9 @@ export const sidebarItems = [
         link: "dashboard",
     },
     {
-        title: "Orders",
-        icon: <ShoppingCart className="h-4 w-4" />,
-        link: "orders",
+        title: "Appointments",
+        icon: <Calendar className="h-4 w-4" />,
+        link: "appointments",
         badge: 6,
     },
     {
@@ -26,11 +26,6 @@ export const sidebarItems = [
         title: "Analytics",
         icon: <LineChart className="h-4 w-4" />,
         link: "analytics",
-    },
-    {
-        title: "Appointments",
-        icon: <Calendar className="h-4 w-4" />,
-        link: "appointments",
     },
     {
         title: "Forms",

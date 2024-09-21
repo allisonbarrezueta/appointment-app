@@ -12,6 +12,10 @@ import Customers from "./routes/Customers";
 import Products from "./routes/Products";
 import Settings from "./routes/Settings";
 import Appointments from "./routes/Appointments";
+import ViewProducts from "./components/features/products/ViewProducts";
+import ViewCustomer from "./components/features/customers/ViewCustomer";
+import HandleCustomer from "./components/features/customers/HandleCustomer";
+import HandleProduct from "./components/features/products/HandleProduct";
 
 const router = createBrowserRouter([
     {
@@ -24,12 +28,36 @@ const router = createBrowserRouter([
                 element: <Dashboard />,
             },
             {
+                path: "appointments",
+                element: <Appointments />,
+            },
+            {
                 path: "products",
                 element: <Products />,
+                children: [
+                    {
+                        path: ":productId",
+                        element: <ViewProducts />,
+                    },
+                    {
+                        path: "new",
+                        element: <HandleProduct />,
+                    },
+                ],
             },
             {
                 path: "customers",
                 element: <Customers />,
+                children: [
+                    {
+                        path: ":customerId",
+                        element: <ViewCustomer />,
+                    },
+                    {
+                        path: "new",
+                        element: <HandleCustomer />,
+                    },
+                ],
             },
             {
                 path: "forms",
@@ -38,10 +66,6 @@ const router = createBrowserRouter([
             {
                 path: "settings",
                 element: <Settings />,
-            },
-            {
-                path: "appointments",
-                element: <Appointments />,
             },
         ],
     },
