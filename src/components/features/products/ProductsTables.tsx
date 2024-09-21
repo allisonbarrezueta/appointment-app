@@ -9,7 +9,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
 import { useNavigate } from "react-router-dom";
-import TableWrapper from "../../ui/Table-wrapper";
+import TableWrapper from "@/components/ui/Table-wrapper";
 
 export function ProductsTables({ data }: { data: Product[] }) {
     const [sorting, setSorting] = React.useState<SortingState>([]);
