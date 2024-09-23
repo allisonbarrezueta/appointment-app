@@ -1,14 +1,20 @@
-import { Button } from "./button";
-import { Badge } from "./badge";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./card";
-import { Bell, Package2 } from "lucide-react";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { sidebarItems } from "@/lib/constants";
+import { Bell, Package2 } from "lucide-react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Badge } from "./badge";
+import { Button } from "./button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./card";
 
 export default function Sidebar() {
     const [selectedSidebar, setSelectedSidebar] = useState("dashboard");
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const path = window.location.pathname.replace("/", "");
+        const [found] = path.split("/");
+        setSelectedSidebar(found);
+    }, []);
 
     const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
         e.preventDefault();

@@ -13,7 +13,7 @@ export default function Root() {
             <Sidebar />
             <div className="flex flex-col">
                 <Nav />
-                <main className="flex max-h-max flex-1 flex-col gap-4 overflow-y-auto p-4 lg:gap-6 lg:p-6">
+                <main className="relative flex w-full flex-1 flex-col gap-2 overflow-y-auto p-4 md:max-h-max lg:gap-4 lg:p-6">
                     <Outlet />
                 </main>
             </div>

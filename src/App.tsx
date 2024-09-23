@@ -1,21 +1,25 @@
 // import reactLogo from "./assets/react.svg";
 // import viteLogo from "/vite.svg";
-import "./global.css";
+import "@mobiscroll/react/dist/css/mobiscroll.min.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Root from "./routes/root";
-import Login from "./routes/Login";
-import Dashboard from "./components/features/dashboard.tsx/dashboard";
-import SignUp from "./routes/SignUp";
-import ErrorPage from "./components/features/error/error-page";
-import Forms from "./routes/Forms";
-import Customers from "./routes/Customers";
-import Products from "./routes/Products";
-import Settings from "./routes/Settings";
-import Appointments from "./routes/Appointments";
-import ViewProducts from "./components/features/products/ViewProducts";
-import ViewCustomer from "./components/features/customers/ViewCustomer";
 import HandleCustomer from "./components/features/customers/HandleCustomer";
+import ViewCustomer from "./components/features/customers/ViewCustomer";
+import Dashboard from "./components/features/dashboard/Dashboard";
+import ErrorPage from "./components/features/error/error-page";
+import HandleForm from "./components/features/forms.tsx/HandleForm";
+import ViewForm from "./components/features/forms.tsx/ViewForm";
 import HandleProduct from "./components/features/products/HandleProduct";
+import ViewProducts from "./components/features/products/ViewProducts";
+import Specialist from "./components/features/specialist/Specialist";
+import "./global.css";
+import Appointments from "./routes/Appointments";
+import Customers from "./routes/Customers";
+import Forms from "./routes/Forms";
+import Login from "./routes/Login";
+import Products from "./routes/Products";
+import Root from "./routes/root";
+import Settings from "./routes/Settings";
+import SignUp from "./routes/SignUp";
 
 const router = createBrowserRouter([
     {
@@ -32,36 +36,72 @@ const router = createBrowserRouter([
                 element: <Appointments />,
             },
             {
-                path: "products",
-                element: <Products />,
                 children: [
+                    { index: true, element: <Products /> },
                     {
-                        path: ":productId",
+                        path: "products",
+                        element: <Products />,
+                    },
+                    {
+                        path: "products/:productId",
                         element: <ViewProducts />,
                     },
                     {
-                        path: "new",
+                        path: "/products:productId/edit",
+                        element: <HandleProduct />,
+                    },
+                    {
+                        path: "products/new",
                         element: <HandleProduct />,
                     },
                 ],
             },
+
             {
-                path: "customers",
-                element: <Customers />,
                 children: [
+                    { index: true, element: <Customers /> },
                     {
-                        path: ":customerId",
+                        path: "customers",
+                        element: <Customers />,
+                    },
+                    {
+                        path: "customers/:customerId",
                         element: <ViewCustomer />,
                     },
                     {
-                        path: "new",
+                        path: "customers/:customerId/edit",
+                        element: <HandleCustomer />,
+                    },
+                    {
+                        path: "customers/new",
                         element: <HandleCustomer />,
                     },
                 ],
             },
             {
-                path: "forms",
-                element: <Forms />,
+                children: [
+                    { index: true, element: <Forms /> },
+                    {
+                        path: "forms",
+                        element: <Forms />,
+                    },
+                    {
+                        path: "forms/:formId",
+                        element: <ViewForm />,
+                    },
+                    {
+                        path: "forms/:formId/edit",
+                        element: <HandleForm />,
+                    },
+                    {
+                        path: "forms/new",
+                        element: <HandleForm />,
+                    },
+                ],
+            },
+            {
+                path: "users",
+                element: <Specialist />,
             },
             {
                 path: "settings",

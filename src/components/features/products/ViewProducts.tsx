@@ -1,5 +1,6 @@
-const ViewProducts = () => {
-    return <div>ViewProducts</div>;
+const ViewProduct = () => {
+    console.log("here");
+    return <div>ViewProduct</div>;
 };
 
-export default ViewProducts;
+export default ViewProduct;

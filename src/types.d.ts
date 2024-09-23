@@ -1,3 +1,9 @@
+interface Option {
+    value: string;
+    label: string;
+    [key: string]: any;
+}
+
 interface Address {
     street1?: string;
     street2?: string;
@@ -9,15 +15,22 @@ interface Address {
 interface Customer {
     id: string;
     name: string;
+    lastName: string;
     email: string;
+    identification: string;
     phone: string;
-    amount: number;
+    birthDate?: string;
+    address?: string;
+    city?: string;
+    country?: string;
+    gender?: "female" | "male";
+    zipCode?: string;
     status: "active" | "inactive";
     createdAt: string;
-    updatedAt?: string;
-    address?: Address;
-    birthDate?: string;
+    updatedAt?: string | null;
 }
+
+interface NewCustomer extends Partial<Customer> {}
 
 interface Product {
     id: string;
@@ -66,9 +79,14 @@ interface Appointment {
 interface Employee {
     id: string;
     name: string;
+    lastName: string;
     email: string;
     phone: string;
-    address?: Address;
+    // address?: Address;
+    address?: string;
+    city?: string;
+    country?: string;
+    zipCode?: string;
     birthDate: string;
     createdAt: string;
     updatedAt?: string;
@@ -78,6 +96,7 @@ interface Form {
     id: string;
     title: string;
     description: string;
+    sections: Section[];
 }
 
 interface Section {
@@ -85,10 +104,8 @@ interface Section {
     formId: string;
     title: string;
     subtitle: string;
-    // options: string[];
     orderIndex: number;
     question?: Question[];
-    // parentSectionId: string;
 }
 
 interface Illustration {
@@ -98,18 +115,15 @@ interface Illustration {
 
 interface Question {
     id: string;
-    icon: null | Illustration;
     questionText: null | string;
-    varName: string;
     placeholder: null | string;
     contentTooltip: null | string;
     defaultValue: string;
-    varValue: string;
     type?: "text" | "number" | "date" | "email" | "textarea" | "checkbox" | "radio" | "select";
-    notEdit: boolean;
+    disabled: boolean;
     optional: boolean;
-    dependencyConnector: string;
-    dependencies: dependency[];
+    // dependencyConnector: string;
+    // dependencies: dependency[];
     orderIndex: number;
 }
 

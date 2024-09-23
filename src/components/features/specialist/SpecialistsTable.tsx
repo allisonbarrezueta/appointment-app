@@ -1,7 +1,7 @@
 "use client";
 
 import { ColumnDef, ColumnFiltersState, SortingState, VisibilityState, getCoreRowModel, getFilteredRowModel, getPaginationRowModel, getSortedRowModel, useReactTable } from "@tanstack/react-table";
-import { ArrowUpDown, ChevronDown, File, MoreHorizontal, PlusCircle } from "lucide-react";
+import { ArrowUpDown, ChevronDown, MoreHorizontal, PlusCircle } from "lucide-react";
 import * as React from "react";
 
 import { Button } from "@/components/ui/button";
@@ -11,14 +11,15 @@ import { Input } from "@/components/ui/input";
 import TableWrapper from "@/components/ui/Table-wrapper";
 import { useNavigate } from "react-router-dom";
 
-export function CustomersTables({ data }: { data: Customer[] }) {
+export function ProductsTables({ data }: { data: Employee[] }) {
     const [sorting, setSorting] = React.useState<SortingState>([]);
     const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
     const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
     const [rowSelection, setRowSelection] = React.useState({});
+
     const navigate = useNavigate();
 
-    const columns: ColumnDef<Customer>[] = [
+    const columns: ColumnDef<Employee>[] = [
         {
             id: "select",
             header: ({ table }) => (
@@ -38,38 +39,33 @@ export function CustomersTables({ data }: { data: Customer[] }) {
             cell: ({ row }) => <div className="capitalize">{row.getValue("name")}</div>,
         },
         {
-            accessorKey: "lastName",
-            header: "Last name",
-            cell: ({ row }) => <div className="capitalize">{row.getValue("lastName")}</div>,
+            accessorKey: "description",
+            header: "Status",
+            cell: ({ row }) => <div className="capitalize">{row.getValue("description")}</div>,
         },
         {
-            accessorKey: "email",
+            accessorKey: "price",
             header: ({ column }) => {
                 return (
                     <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
-                        Email
+                        Price
                         <ArrowUpDown className="ml-2 h-4 w-4" />
                     </Button>
                 );
             },
-            cell: ({ row }) => <div className="lowercase">{row.getValue("email")}</div>,
+            cell: ({ row }) => <div className="lowercase">{row.getValue("price")}</div>,
         },
         {
-            accessorKey: "phone",
-            header: "Phone",
+            accessorKey: "duration",
+            header: "Duration",
             cell: ({ row }) => {
-                const phone: string = row.getValue("phone");
+                const duration: string = row.getValue("duration");
 
-                // Format the phone into a human-readable format
-                const formatted = phone.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3");
+                // Format the duration into a human-readable format
+                const formatted = `${duration} minutes`;
 
                 return <div>{formatted}</div>;
             },
-        },
-        {
-            accessorKey: "status",
-            header: "Status",
-            cell: ({ row }) => <div className="capitalize">{row.getValue("status")}</div>,
         },
         {
             id: "actions",
@@ -88,7 +84,7 @@ export function CustomersTables({ data }: { data: Customer[] }) {
                             <DropdownMenuLabel>Actions</DropdownMenuLabel>
                             {/* <DropdownMenuItem onClick={() => navigator.clipboard.writeText(payment.id)}>Copy payment ID</DropdownMenuItem>
                         <DropdownMenuSeparator /> */}
-                            <DropdownMenuItem onClick={() => navigate(customer.id)}>View customer</DropdownMenuItem>
+                            <DropdownMenuItem onClick={() => navigate(customer.id)}>View Specialist</DropdownMenuItem>
                             <DropdownMenuItem>Delete</DropdownMenuItem>
                         </DropdownMenuContent>
                     </DropdownMenu>
@@ -120,10 +116,10 @@ export function CustomersTables({ data }: { data: Customer[] }) {
         <div className="w-full">
             <div className="flex items-center pb-4">
                 <Input
-                    placeholder="Filter names..."
+                    placeholder="Filter products..."
                     value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
                     onChange={(event) => table.getColumn("name")?.setFilterValue(event.target.value)}
-                    className="max-w-xs"
+                    className="max-w-sm"
                 />
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
@@ -144,13 +140,9 @@ export function CustomersTables({ data }: { data: Customer[] }) {
                             })}
                     </DropdownMenuContent>
                 </DropdownMenu>
-                <Button size="sm" variant="outline" className="ml-2 gap-1">
-                    <File className="h-4 w-4" />
-                    <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">Import</span>
-                </Button>
-                <Button size="sm" className="ml-2 gap-1" onClick={() => navigate("new")}>
-                    <PlusCircle className="h-4 w-4" />
-                    <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">Add Customer</span>
+                <Button size="sm" className="ml-2 h-8 gap-1">
+                    <PlusCircle className="h-3.5 w-3.5" />
+                    <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">Add Specialist</span>
                 </Button>
             </div>
             <TableWrapper table={table} columns={columns} />

@@ -1,15 +1,15 @@
 "use client";
 
-import * as React from "react";
 import { ColumnDef, ColumnFiltersState, SortingState, VisibilityState, getCoreRowModel, getFilteredRowModel, getPaginationRowModel, getSortedRowModel, useReactTable } from "@tanstack/react-table";
-import { ArrowUpDown, ChevronDown, MoreHorizontal } from "lucide-react";
+import { ArrowUpDown, ChevronDown, MoreHorizontal, PlusCircle } from "lucide-react";
+import * as React from "react";
 
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
-import { useNavigate } from "react-router-dom";
 import TableWrapper from "@/components/ui/Table-wrapper";
+import { useNavigate } from "react-router-dom";
 
 export function ProductsTables({ data }: { data: Product[] }) {
     const [sorting, setSorting] = React.useState<SortingState>([]);
@@ -114,7 +114,7 @@ export function ProductsTables({ data }: { data: Product[] }) {
 
     return (
         <div className="w-full">
-            <div className="flex items-center py-4">
+            <div className="flex items-center pb-4">
                 <Input
                     placeholder="Filter products..."
                     value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
@@ -140,6 +140,10 @@ export function ProductsTables({ data }: { data: Product[] }) {
                             })}
                     </DropdownMenuContent>
                 </DropdownMenu>
+                <Button size="sm" className="ml-2 h-8 gap-1">
+                    <PlusCircle className="h-3.5 w-3.5" />
+                    <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">Add Product</span>
+                </Button>
             </div>
             <TableWrapper table={table} columns={columns} />
         </div>
